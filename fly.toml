@@ -9,6 +9,7 @@ kill_timeout = '2m0s'
 [env]
   DOMAIN = 'https://vaultwarden.byrdsonservices.com'
   SIGNUPS_ALLOWED = 'false'
+  SIGNUPS_DOMAINS_WHITELIST = 'byrdsonservices.com'
   SSO_ENABLED = 'true'
   SSO_AUTHORITY = 'https://accounts.google.com'
 
