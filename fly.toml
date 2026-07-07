@@ -7,8 +7,10 @@ kill_timeout = '2m0s'
   image = 'vaultwarden/server:1.36.0'
 
 [env]
-  WEBSOCKET_ENABLED = 'true'
+  DOMAIN = 'https://vaultwarden.byrdsonservices.com'
   SIGNUPS_ALLOWED = 'false'
+  SSO_ENABLED = 'true'
+  SSO_AUTHORITY = 'https://accounts.google.com'
 
 [http_service]
   internal_port = 80
@@ -22,6 +24,14 @@ kill_timeout = '2m0s'
     type = 'requests'
     hard_limit = 100
     soft_limit = 50
+
+[[mounts]]
+  source = 'vaultwarden_byrdson_volume'
+  destination = '/data'
+  auto_extend_size_threshold = 90
+  auto_extend_size_increment = '1GB'
+  auto_extend_size_limit = '5GB'
+  scheduled_snapshots = false
 
 [[vm]]
   size = 'shared-cpu-1x'
